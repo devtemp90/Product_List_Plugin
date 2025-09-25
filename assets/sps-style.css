@@ -1,0 +1,378 @@
+/* === General Layout === */
+.sps-wrapper {
+  font-family: Arial, sans-serif;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem;
+  color: #333;
+}
+
+/* === Search bar === */
+.sps-search-bar {
+  display: flex;
+  justify-content: center;
+  margin: 2rem auto;
+  width: 100%;
+  max-width: 600px;
+}
+
+/* === Input field === */
+.sps-input {
+  width: 100%;
+  padding: 12px 18px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  color: #333;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 50px;
+  outline: none;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+/* === Product Cards === */
+.sps-results {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+.sps-card {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  background: #fff;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease;
+}
+.sps-card:hover {
+  transform: translateY(-3px);
+}
+.sps-card-img {
+  width: 100%;
+  height: 160px;
+  object-fit: contain;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+.sps-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 0.4rem;
+}
+.sps-desc {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 0.6rem;
+}
+.sps-price {
+  font-weight: bold;
+  margin-bottom: 0.8rem;
+}
+.sps-enquire-btn {
+  background: #fff;
+  border: 1px solid #c2185b;
+  color: #c2185b;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.sps-enquire-btn:hover {
+  background: #c2185b;
+  color: #fff;
+}
+
+/* === Product Modal === */
+.sps-product-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  background: rgba(0,0,0,0.6);
+  overflow: auto;
+}
+.sps-product-modal.sps-open {
+  display: flex;
+}
+
+.sps-product-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+
+.sps-product-box {
+  position: relative;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  animation: slideIn 0.2s ease;
+}
+
+/* Modal Close Button */
+.sps-product-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: #888;
+}
+.sps-product-close:hover {
+  color: #333;
+}
+
+/* Product Content */
+.sps-product-img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+#sps-prod-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.6rem;
+}
+
+#sps-prod-desc {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+#sps-prod-enquire {
+  background: #fff;
+  border: 1px solid #c2185b;
+  color: #c2185b;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+#sps-prod-enquire:hover {
+  background: #c2185b;
+  color: #fff;
+}
+
+/* === Animation === */
+@keyframes slideIn {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* === Enquiry Modal === */
+/* === Enquiry Modal === */
+.sps-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  background: rgba(0,0,0,0.6); /* move overlay bg here */
+}
+
+.sps-modal.sps-open {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* remove flex + bg from overlay */
+.sps-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: transparent; /* keep transparent, bg is on .sps-modal now */
+}
+
+.sps-modal-box {
+  position: relative;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  z-index: 10000; /* ensure above overlay */
+}
+
+.sps-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: #888;
+}
+.sps-modal-close:hover {
+  color: #333;
+}
+
+/* === Modal Content === */
+.sps-product-search {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 0.6rem;
+  font-size: 1rem;
+}
+.sps-suggestions {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 0.6rem;
+  max-height: 160px;
+  overflow-y: auto;
+}
+.sps-suggestion {
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+}
+.sps-suggestion:hover {
+  background: #f5f5f5;
+}
+
+/* === Selected Products (Chips) === */
+.sps-product-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.sps-tag {
+  background: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 0.3rem 0.8rem;
+  display: flex;
+  align-items: center;
+  font-size: 0.85rem;
+}
+.sps-tag-remove {
+  background: transparent;
+  border: none;
+  margin-left: 0.4rem;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #c2185b;
+}
+.sps-tag-remove:hover {
+  color: #000;
+}
+
+/* === Enquiry Form === */
+#sps-enquiry-form label {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+#sps-enquiry-form input,
+#sps-enquiry-form textarea {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+#sps-enquiry-form textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+#sps-enquiry-form button[type="submit"] {
+  background: #2e7d32;
+  color: #fff;
+  padding: 0.7rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.2s ease;
+}
+#sps-enquiry-form button[type="submit"]:hover {
+  background: #1b5e20;
+}
+
+/* === Form Status Messages === */
+.sps-form-status {
+  margin-top: 0.8rem;
+  font-size: 0.9rem;
+  display: none;
+}
+.sps-form-status.sps-success {
+  color: #00b209;
+  display: block;
+}
+.sps-form-status.sps-error {
+  color: #c2185b;
+  display: block;
+}
+
+/* === Responsive Adjustments === */
+@media (max-width: 600px) {
+  .sps-product-box, .sps-modal-box {
+    width: 95%;
+    padding: 1.5rem;
+  }
+  .sps-product-img {
+    max-height: 200px;
+  }
+}
+
+.sps-card.skeleton {
+  background: #f4f4f4;
+  border-radius: 8px;
+  overflow: hidden;
+  animation: pulse 1.2s infinite;
+}
+.sps-card.skeleton .sps-card-img,
+.sps-card.skeleton .sps-title,
+.sps-card.skeleton .sps-desc,
+.sps-card.skeleton .sps-price,
+.sps-card.skeleton .sps-btn {
+  background: #e0e0e0;
+  border-radius: 4px;
+  height: 16px;
+  margin: 6px 0;
+}
+.sps-card.skeleton .sps-card-img { height: 120px; }
+.sps-card.skeleton .sps-title { width: 60%; height: 20px; }
+.sps-card.skeleton .sps-desc { width: 80%; }
+.sps-card.skeleton .sps-price { width: 40%; height: 18px; }
+.sps-card.skeleton .sps-btn { width: 70px; height: 28px; border-radius: 14px; }
+
+@keyframes pulse {
+  0% { opacity: .6; }
+  50% { opacity: 1; }
+  100% { opacity: .6; }
+}
+
